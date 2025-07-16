@@ -1,3 +1,21 @@
+# Folder structure
+einbuergerungstest-app/
+```
+├─ public/
+│  └─ (static files)
+├─ src/
+│  ├─ App.jsx        <-- Your main React component
+│  ├─ questions.json <-- questions
+│  └─ main.jsx       <-- Entry point
+├─ index.html
+├─ package.json
+├─ vite.config.js
+```
+
+# To run the website
+```
+npm run dev
+```
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
