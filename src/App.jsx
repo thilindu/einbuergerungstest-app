@@ -1,61 +1,20 @@
-import { useEffect, useState } from 'react';
-import questions from './questions.json';
+import { useState } from 'https://cdn.jsdelivr.net/npm/react@18.2.0/+esm'
+import Quiz from './components/Quiz.jsx'
 
-function App() {
-  const [current, setCurrent] = useState(0);
-  const [selected, setSelected] = useState(null);
-  const [answered, setAnswered] = useState(false);
-
-  const handleAnswer = (index) => {
-    setSelected(index);
-    setAnswered(true);
-  };
-
-  const nextQuestion = () => {
-    setCurrent((prev) => (prev + 1) % questions.length);
-    setSelected(null);
-    setAnswered(false);
-  };
+export default function App() {
+  const [score, setScore] = useState(0)
+  const [progress, setProgress] = useState(0)
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
-      <h1>Einbürgerungstest</h1>
-      <h2>{questions[current].question}</h2>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {questions[current].answers.map((answer, i) => (
-          <li key={i} style={{ marginBottom: '10px' }}>
-            <button
-              onClick={() => handleAnswer(i)}
-              style={{
-                padding: '10px',
-                width: '100%',
-                backgroundColor:
-                  answered && i === questions[current].correct
-                    ? 'lightgreen'
-                    : answered && selected === i
-                    ? 'salmon'
-                    : '#eee',
-                border: '1px solid #ccc',
-                textAlign: 'left',
-              }}
-            >
-              {answer}
-            </button>
-          </li>
-        ))}
-      </ul>
-      {answered && (
-        <div style={{ marginTop: '20px' }}>
-          <p>
-            {selected === questions[current].correct
-              ? '✅ Richtig!'
-              : '❌ Falsch.'}
-          </p>
-          <button onClick={nextQuestion}>Nächste Frage</button>
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+      <h1 className="text-4xl font-bold text-blue-600 mb-6">Einbürgerung Test Practice</h1>
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
+        <div className="mb-4">
+          <p className="text-lg">Score: {score}</p>
+          <p className="text-lg">Progress: {Math.round(progress * 100)}%</p>
         </div>
-      )}
+        <Quiz setScore={setScore} setProgress={setProgress} />
+      </div>
     </div>
-  );
+  )
 }
-
-export default App;

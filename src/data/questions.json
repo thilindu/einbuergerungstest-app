@@ -1,0 +1,16 @@
+[
+  {
+    "question": "What is the capital of Germany?",
+    "options": ["Berlin", "Munich", "Hamburg", "Frankfurt"],
+    "correctAnswer": "Berlin",
+    "backgroundInfo": "Berlin has been the capital of Germany since reunification in 1990.",
+    "deepDive": "Berlin is not only the political center but also a cultural hub, hosting landmarks like the Brandenburg Gate and Museum Island."
+  },
+  {
+    "question": "How many federal states does Germany have?",
+    "options": ["12", "14", "16", "18"],
+    "correctAnswer": "16",
+    "backgroundInfo": "Germany is a federal republic with 16 states, known as Bundesländer.",
+    "deepDive": "Each Bundesland has its own constitution and government, contributing to Germany's federal structure."
+  }
+]
